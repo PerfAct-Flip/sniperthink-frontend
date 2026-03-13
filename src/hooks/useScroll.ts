@@ -45,7 +45,7 @@ export function useInView(threshold: number = 0.3): InViewResult {
         setInView(entry.isIntersecting);
         setProgress(entry.intersectionRatio);
       },
-      { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }
+      { threshold: [threshold, ...Array.from({ length: 21 }, (_, i) => i / 20)] }
     );
 
     observer.observe(el);
